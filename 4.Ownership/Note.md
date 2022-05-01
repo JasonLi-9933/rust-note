@@ -1,0 +1,6 @@
+- Rust has a special annotation called the Copy trait that we can place on types that are stored on the stack like integers are. If a type implements the `Copy` trait, a variable is still valid after assignment to another variable. Rust won’t let us annotate a type with `Copy` if the type, or any of its parts, has implemented the `Drop` trait. If the type needs something special to happen when the value goes out of scope and we add the `Copy` annotation to that type, we’ll get a compile-time error.
+- Rust has a feature for using a value without transferring ownership, called `references`.
+- Mutable `reference`s have one big restriction: you can have only one mutable `reference` to a particular piece of data at a time.
+- A `reference`’s scope starts from where it is introduced and continues through the last time that `reference` is used.
+- At any given time, you can have either one mutable reference or any number of immutable references.
+- References must always be valid
