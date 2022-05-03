@@ -115,3 +115,67 @@ pub fn eat_at_restaurant3() {
     let order1 = back_of_house3::Appetizer::Soup;
     let order2 = back_of_house3::Appetizer::Salad;
 }
+
+
+// ============================================================================
+// ============================================================================
+
+/* Providing New Names with the as Keyword */
+use std::fmt::Result;
+use std::io::Result as IoResult;
+
+fn function1() -> Result {
+    // --snip--
+    Ok(())
+}
+
+fn function2() -> IoResult<()> {
+    // --snip--
+    Ok(())
+}
+
+// ============================================================================
+// ============================================================================
+
+/* 
+Re-exporting Names with pub use 
+we can combine pub and use. 
+This technique is called re-exporting because we’re bringing an item into scope 
+but also making that item available for others to bring into their scope.
+*/
+
+mod front_of_house4 {
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+    }
+}
+//external code can now call the add_to_waitlist function using hosting::add_to_waitlist
+pub use crate::front_of_house::hosting; 
+
+pub fn eat_at_restaurant4() {
+    hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
+}
+
+// ============================================================================
+// ============================================================================
+
+/* Using Nested Paths to Clean Up Large use Lists */
+use std::cmp::Ordering;
+use std::io;
+// |
+// V
+use std::{cmp::Ordering, io};
+
+use std::io;
+use std::io::Write;
+// |
+// V
+use std::io::{self, Write};
+
+// ============================================================================
+// ============================================================================
+
+/* The Glob Operator */
+use std::collections::*;
