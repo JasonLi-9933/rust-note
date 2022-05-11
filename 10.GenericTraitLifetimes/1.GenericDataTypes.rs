@@ -12,7 +12,7 @@ fn largest<T>(list: &[T]) -> T { // correct way: fn largest<T: PartialOrd + Copy
 
 	for &item in list {
 		if item > largest { // BIG PROBLEM!!!!
-				largest = item;
+			largest = item;
 		}
 	}
 

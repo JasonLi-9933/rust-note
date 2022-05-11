@@ -42,8 +42,8 @@ fn main() {
 
   // using the get method with the index passed as an argument, which gives us an Option<&T>
 	match v.get(2) {
-			Some(third) => println!("The third element is {}", third),
-			None => println!("There is no third element."),
+		Some(third) => println!("The third element is {}", third),
+		None => println!("There is no third element."),
 	}
 
 	let does_not_exist = &v[100]; // PANIC!!!! it references a nonexistent element
@@ -58,7 +58,7 @@ fn main() {
 	let first = &v[0]; // immutable borrow
 	v.push(6); // mutable borrow
 
-	// change first below to &v[0] will make the code compile
+	// change first below to &v[0] will also make the code compile
 	println!("The first element is: {}", first); // ERROR!!! immutable borrow used here
 
 	/* 
